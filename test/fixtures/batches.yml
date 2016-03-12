@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  batch_date: 2016-03-12
+  general_notes: MyText
+  ingredient_changes: MyText
+  direction_changes: MyText
+  result_notes: MyText
+  rating: 1
+  recipe_id: 1
+
+two:
+  batch_date: 2016-03-12
+  general_notes: MyText
+  ingredient_changes: MyText
+  direction_changes: MyText
+  result_notes: MyText
+  rating: 1
+  recipe_id: 1

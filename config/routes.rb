@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
+  root "brewer#show"
+
   get 'static_pages/home'
 
   get 'static_pages/about'
 
-  get 'static_pages/home,'
+  resources :brewer do
+  	resources :recipes
+  end
 
-  get 'static_pages/about'
+  resources :recipes do
+  	resources :ingredients
+  	resources :directions
+  	resources :batches
+  end
+  
 
 end
