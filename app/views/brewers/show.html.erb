@@ -1,2 +1,6 @@
-<h1>Brewers#show</h1>
-<p>Find me in app/views/brewers/show.html.erb</p>
+<h1>Brewers</h1>
+<div>
+	<%= @brewers.each do |brewer| %>
+	<%= link_to brewer_id, brewer %>
+	<%#count of public recipes%>
+	</div>
