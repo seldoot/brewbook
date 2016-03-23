@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "brewer#show"
+  root "static_pages#home"
 
   get 'static_pages/home'
 

@@ -4,3 +4,5 @@
 	<%= link_to brewer_id, brewer %>
 	<%#count of public recipes%>
 	</div>
+
+<%= link_to 'New Recipe', new_recipe_path(brewer_id => @brewer.id) %>
