@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   get 'static_pages/about'
 
   resources :brewer do
-  	resources :recipes
+  	resources :recipes do
+      resources :ingredients
+      resources :directions
+      resources :batches
+   end 	
   end
 
-  resources :recipes do
-  	resources :ingredients
-  	resources :directions
-  	resources :batches
-  end
+  devise_for :brewers
   
 
 end

@@ -1,21 +1,25 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_brewer!, :set_brewer
+
   def index
-  	@recipes = List.all
-  	  end
+  	    @recipes = @brewer.recipes
+  end
 
   def show
-  	@recipe = Recipe.find(params[:id])
+  	@recipe = @brewer.recipes.find(params[:id])
   end
 
   def new
-  	@recipe = Recipe.new(:recipe_name => params[:id])
+  	
+    @recipe = @brewer.recipes.new
   end
 
   def create
-  	@recipe = Recipe.new(recipe_params)
+  	
+    @recipe = @brewer.recipes.create(recipe_params)
   	if @recipe.save
   		flash[:notice] = "Your recipe has been saved."
-  		redirect_to @recipe
+  		redirect_to brewer_recipe_path(@brewer, @recipe)
   	else
   		render :new
   	end
@@ -26,7 +30,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-  	@recipe = List.find(params[:id])
+  	@recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
      flash[:notice] = "recipe updated"
      redirect_to @recipe
@@ -38,6 +42,10 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-  	params.require(:recipe_name)
-  	.permit(:description, :brew_type, :brewer_id)
+  	params[:recipe].permit(:recipe_name, :description, :brew_type, :brewer_id)
+  end
+
+  def set_brewer
+    @brewer = current_brewer
+  end
 end

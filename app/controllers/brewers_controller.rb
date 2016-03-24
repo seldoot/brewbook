@@ -1,7 +1,7 @@
 class BrewersController < ApplicationController
   
   def index
-  	@brewers=List.all
+  	@brewers = Brewer.all
   end
 
   def show

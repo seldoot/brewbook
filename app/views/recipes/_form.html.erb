@@ -1,0 +1,21 @@
+<%= form_for ([@brewer, @brewer.recipes.build]) do |f| %>
+
+<div class="field">
+	<%= f.label :recipe_name %>
+	<%= f.text_field :recipe_name %>
+</div>
+<div class="field">
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+</div>
+
+<div>
+	<%= f.label :type_of_brew %>
+	<%= f.select(:brew_type, options_for_select([['Ale', 1], ['Lager', 2], ['Cider', 3], ['Stout', 4], ['Porter', 5], ['IPA', 6]])) %>
+</div>
+
+<div>
+	<%= f.submit %>
+</div>
+
+<% end %>
